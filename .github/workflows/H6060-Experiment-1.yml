@@ -1,7 +1,7 @@
 name: H6060 Experiment 1 - Pillow
 
 on:
-  push:
+  workflow_dispatch:
 
 defaults:
   run:
@@ -46,3 +46,14 @@ jobs:
           name: coverage-report
           path: coverage.xml
           if-no-files-found: error
+
+  python-scanning:
+    name: Run SCA and SAST Python Scanning Workflow
+    uses: seansmith39/H6060-Experiment-Resources/.github/workflows/experiment-1-python.yml@main
+    needs: build-application
+    secrets: inherit
+    with:
+      project-name: H6060-Python-pillow
+      project-build-dir: build
+      eclipse-steady-workspace-token: 1A8CC68377BFEEA81CDF80CFA757872E
+      eclipse-steady-project-source-directories: src

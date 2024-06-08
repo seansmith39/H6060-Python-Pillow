@@ -1,0 +1,14 @@
+version = 1
+
+test_patterns = [
+    "Tests/**",
+    "test_*.py"
+]
+
+[[analyzers]]
+name = "python"
+enabled = true
+dependency_file_paths = ["requirements.txt"]
+
+    [analyzers.meta]
+    runtime_version = "3.x.x"
