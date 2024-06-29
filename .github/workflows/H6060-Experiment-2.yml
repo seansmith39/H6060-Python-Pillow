@@ -95,9 +95,6 @@ jobs:
           build-command: .ci/build.sh
           build-directory: build
 
-      - name: Create CycloneDX SBOM
-        uses: seansmith39/H6060-Experiment-Resources/.github/actions/python/python-sbom@main
-
       - name: Run Tests
         if: ${{ inputs.sast-deepsource-enabled == true }}
         env:
@@ -111,6 +108,9 @@ jobs:
           name: coverage-report
           path: coverage.xml
           if-no-files-found: error
+
+      - name: Create CycloneDX SBOM
+        uses: seansmith39/H6060-Experiment-Resources/.github/actions/python/python-sbom@main
 
   python-scanning:
     name: Run SCA and SAST Python Scanning Workflow
