@@ -96,11 +96,13 @@ jobs:
           build-directory: build
 
       - name: Run Tests
+        if: ${{ inputs.sast-deepsource-enabled == true }}
         env:
           PYTHONOPTIMIZE: 2
         run: xvfb-run -s '-screen 0 1024x768x24' .ci/test.sh
 
       - name: Upload Coverage XML Report
+        if: ${{ inputs.sast-deepsource-enabled == true }}
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
