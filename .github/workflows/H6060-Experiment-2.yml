@@ -132,6 +132,7 @@ jobs:
       sast-horusec-enabled: ${{ inputs.sast-horusec-enabled }}
       sast-snyk-code-enabled: ${{ inputs.sast-snyk-code-enabled }}
       project-name: H6060-Python-pillow
-      project-build-dir: build
+      sca-file-to-scan: requirements.txt
       eclipse-steady-workspace-token: 1A8CC68377BFEEA81CDF80CFA757872E
       eclipse-steady-project-source-directories: src
+      build-directory: dist
